@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../megacena2/megacena2.component.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Document</title>
+ 
+</head>
+<body>
+    <div class="component1">
+        <div class="component2">
+            <div style="display: inline-block;">
+
+                <div>
+                    <div class="alert alert-info" role="alert">
+                        Número gerado 
+                      </div>
+
+                </div>
+
+                <div>
+                    <input class="input1" placeholder="Digite algo..." [(ngModel)]="valor2" >
+                </div>
+
+
+                
+                <div>
+                    <button type="button" class="btn btn-success" style="margin-top: 20px; margin-left: 150px;width: 100px;" (click)="verificar()">verificar</button>
+                </div>
+
+                <div>
+                    <button *ngIf="valor2[10]" type="button" class="btn btn-warning" style="margin-top: 20px; margin-left: 150px; width: 100px;" (click)="testarAleatorio()">gerar</button>
+                </div>
+
+            </div>
+            
+
+
+        </div>
+        
+    </div>
+    
+    
+    
+</body>
+</html>
