@@ -28,6 +28,34 @@
     align-items: center;
 }
 
+#component3{
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: rgb(44, 44, 44);
+    box-shadow: 0 4px 12px   black;
+    justify-content: center;
+    left: 690px;
+
+    align-items: center;
+    top: 100%;
+    position: fixed;
+   
+    
+}
+
+.transition{
+    transition: 0.8s ease;
+    transform: translateY(-730px);
+
+}
+
+.transition2{
+    transition: 0.8s ease;
+    transform: translateY(730px);
+
+}
+
 .input1{
     height: 25px;
     width: 400px;

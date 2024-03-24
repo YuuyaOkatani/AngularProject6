@@ -9,16 +9,27 @@ export class Megacena2Component {
 
   valor: number[] = []
   array2: number[] = []
+  resultadoArray: number[] =[]
   valor2: string = ''
   numero: number = 0 
+  togglar = false
+
+  fechar(){
+ 
+    this.togglar = !this.togglar
+    this.valor2 = ''
+  }
+
 
  
   
 
 
-  testarAleatorio(){
+  sortear(){
     this.valor = []
-    
+    this.resultadoArray = []
+   
+
 
     for (let i = 0; i < 6 ; i++){
     
@@ -39,12 +50,10 @@ export class Megacena2Component {
 
     }
     console.log(this.valor)
-  }
 
-
-  verificar(){
-   
     let novoItem = [];
+    this.togglar = !this.togglar
+
     if(this.valor2.trim() !== ''){
       if(this.valor2.trim().split(',').length == 6){
         novoItem =  this.valor2.split(',').map(item => parseInt(item.trim())); 
@@ -52,12 +61,30 @@ export class Megacena2Component {
         if(this.valor.join('') === this.array2.join('')){
           console.log("Deu certo")
 
+          
+       
+          
+
           // colocar o a condição aqui
         }
         else{
           console.log("Está incorreto")
+         
+          
+          
           // colocar a condição aqui 
         }
+        for(let i = 0; i < 6; i++){
+          if(this.valor.includes(this.array2[i])){
+            this.resultadoArray.push(this.array2[i])
+
+          }
+
+        }
+        console.log("Números que você acertou: " , this.resultadoArray)
+        
+
+        
       }
       else if(this.valor2.trim().split(',').length > 6){
         console.log("Você colocou elementos demais")
@@ -74,8 +101,23 @@ export class Megacena2Component {
       console.log("Voce não colocou elementos o suficiente")
       // fazer outro pop up 
     }
+  
+    
 
+
+   
+
+
+    
+
+
+    
+    
   }
+  
+
+
+ 
 
   
 

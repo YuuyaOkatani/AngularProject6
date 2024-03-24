@@ -13,26 +13,66 @@
         <div class="component2">
             <div style="display: inline-block;">
 
-                <div>
-                    <div class="alert alert-info" role="alert">
-                        Número gerado 
-                      </div>
+           
 
-                </div>
+                
 
-                <div>
-                    <input class="input1" placeholder="Digite algo..." [(ngModel)]="valor2" >
+                <div >
+                    <input class="input1" placeholder="Digite 6 números de 1 a 60. Ex: 59,11,5..." [(ngModel)]="valor2"  >
                 </div>
+                
 
 
                 
                 <div>
-                    <button type="button" class="btn btn-success" style="margin-top: 20px; margin-left: 150px;width: 100px;" (click)="verificar()">verificar</button>
+                    <button type="button" id="button" class="btn btn-success" style="margin-top: 20px; margin-left: 150px;width: 100px; position: absolute;" (click)="sortear()">Sortear!</button>
                 </div>
 
-                <div>
-                    <button *ngIf="valor2[10]" type="button" class="btn btn-warning" style="margin-top: 20px; margin-left: 150px; width: 100px;" (click)="testarAleatorio()">gerar</button>
+                <div id="component3" [ngClass]="{'transition': togglar , 'transition2': !togglar}" >
+                    <div style="display: flex" >
+                        
+                        <div *ngIf="valor2.length !== 0 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px; margin-left: 30px;">
+                            <p> Número sorteado: {{valor}}</p>
+                        </div>
+                        <div *ngIf="valor2.length !== 0 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px;">
+                            <p> Número que você colocou:  {{array2}}</p>
+                        </div>
+                        <i class="bi bi-x-circle" (click)="fechar()" style="background-color: red; right: 0px; border-radius: 10px; position: absolute;  "  ></i>
+
+                    
+                    </div>
+                    <div *ngIf="resultadoArray.length !== 0  " class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
+
+                        Números colocados que você acertou: {{resultadoArray}}
+              
+                        
+                    </div>
+                    <div *ngIf=" valor2.length !== 0 && resultadoArray.length == 0 " class="alert alert-danger" role="alert" style="width: 320px; left: 90px;">
+                        Você não acertou nenhum. Tente novamente 😢
+                    </div>
+
+                    <div  *ngIf="resultadoArray.length == 3" class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
+
+                        Você acertou 3! Hoje é seu dia de sorte! 😆✨🎉🎊
+                        
+                    </div>
+
+                    <div  *ngIf="resultadoArray.length == 6" class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
+
+                        Você acertou todas! Parabéns 😆✨🎉🎊
+                        
+                    </div>
+
+
+                    
+
+           
+                    
+                    
                 </div>
+                
+
+                
 
             </div>
             
