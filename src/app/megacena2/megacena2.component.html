@@ -29,25 +29,29 @@
                 </div>
 
                 <div id="component3" [ngClass]="{'transition': togglar , 'transition2': !togglar}" >
+                    
                     <div style="display: flex" >
                         
-                        <div *ngIf="valor2.length !== 0 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px; margin-left: 30px;">
+                        <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px; margin-left: 30px;">
                             <p> Número sorteado: {{valor}}</p>
                         </div>
-                        <div *ngIf="valor2.length !== 0 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px;">
+                        <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px;">
                             <p> Número que você colocou:  {{array2}}</p>
                         </div>
                         <i class="bi bi-x-circle" (click)="fechar()" style="background-color: red; right: 0px; border-radius: 10px; position: absolute;  "  ></i>
 
                     
                     </div>
-                    <div *ngIf="resultadoArray.length !== 0  " class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
+                    <div *ngIf="array2.length  !== 6 " class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
+                        Você não colocou quantidade de números necessários ainda! 
+                      </div>
+                    <div *ngIf="resultadoArray.length !== 0 && array2.length == 6  " class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
 
                         Números colocados que você acertou: {{resultadoArray}}
               
                         
                     </div>
-                    <div *ngIf=" valor2.length !== 0 && resultadoArray.length == 0 " class="alert alert-danger" role="alert" style="width: 320px; left: 90px;">
+                    <div *ngIf=" array2.length== 6 && resultadoArray.length == 0 " class="alert alert-danger" role="alert" style="width: 320px; left: 90px;">
                         Você não acertou nenhum. Tente novamente 😢
                     </div>
 

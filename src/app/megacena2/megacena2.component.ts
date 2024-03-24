@@ -18,6 +18,9 @@ export class Megacena2Component {
  
     this.togglar = !this.togglar
     this.valor2 = ''
+    this.array2 = []
+    this.valor = []
+    this.resultadoArray = []
   }
 
 
@@ -26,8 +29,7 @@ export class Megacena2Component {
 
 
   sortear(){
-    this.valor = []
-    this.resultadoArray = []
+    
    
 
 
