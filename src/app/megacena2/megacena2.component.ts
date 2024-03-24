@@ -103,6 +103,10 @@ export class Megacena2Component {
       console.log("Voce não colocou elementos o suficiente")
       // fazer outro pop up 
     }
+
+    console.log(this.array2.length)
+    console.log(this.valor2.split(',').length)
+    console.log(this.valor2)
   
     
 

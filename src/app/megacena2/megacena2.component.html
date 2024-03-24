@@ -42,9 +42,14 @@
 
                     
                     </div>
-                    <div *ngIf="array2.length  !== 6 " class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
+                    <div *ngIf="array2.length  !== 6 && valor2.split(',').length < 6  " class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
                         Você não colocou quantidade de números necessários ainda! 
                       </div>
+
+                    <div *ngIf="array2.length  !== 6 && valor2.split(',').length > 6" class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
+                        Você colocou quantidade de números em excesso!
+                      </div>
+
                     <div *ngIf="resultadoArray.length !== 0 && array2.length == 6  " class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
 
                         Números colocados que você acertou: {{resultadoArray}}
