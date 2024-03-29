@@ -18,14 +18,14 @@
                 
 
                 <div >
-                    <input class="input1" placeholder="Digite 6 números de 1 a 60. Ex: 59,11,5..." [(ngModel)]="valor2"  >
+                    <input class="input1" placeholder="Enter 6 numbers from 1 to 60. Ex: 59,11,5..." [(ngModel)]="valor2"  >
                 </div>
                 
 
 
                 
                 <div>
-                    <button type="button" id="button" class="btn btn-success" style="margin-top: 20px; margin-left: 150px;width: 100px; position: absolute;" (click)="sortear()">Sortear!</button>
+                    <button type="button" id="button" class="btn btn-success" style="margin-top: 20px; margin-left: 150px;width: 100px; position: absolute;" (click)="sortear()">Draw!</button>
                 </div>
 
                 <div id="component3" [ngClass]="{'transition': togglar , 'transition2': !togglar}" >
@@ -33,42 +33,45 @@
                     <div style="display: flex" >
                         
                         <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px; margin-left: 30px;">
-                            <p> Número sorteado: {{valor}}</p>
+                            <p> Number drawn: {{valor}}</p>
                         </div>
                         <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px;">
-                            <p> Número que você colocou:  {{array2}}</p>
+                            <p> Number you entered:  {{array2}}</p>
                         </div>
                         <i class="bi bi-x-circle" (click)="fechar()" style="background-color: red; right: 0px; border-radius: 10px; position: absolute;  "  ></i>
 
                     
                     </div>
                     <div *ngIf="array2.length  !== 6 && valor2.split(',').length < 6  " class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
-                        Você não colocou quantidade de números necessários ainda! 
+                        
+                        You haven't entered the required number of numbers yet!
                       </div>
 
                     <div *ngIf="array2.length  !== 6 && valor2.split(',').length > 6" class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
-                        Você colocou quantidade de números em excesso!
+                        
+                         You put too many numbers!
                       </div>
 
                     <div *ngIf="resultadoArray.length !== 0 && array2.length == 6  " class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
 
-                        Números colocados que você acertou: {{resultadoArray}}
+                        Numbers placed that you got right: {{resultadoArray}}
               
                         
                     </div>
                     <div *ngIf=" array2.length== 6 && resultadoArray.length == 0 " class="alert alert-danger" role="alert" style="width: 320px; left: 90px;">
-                        Você não acertou nenhum. Tente novamente 😢
+                        You didn't get any right. Try again 😢
                     </div>
 
                     <div  *ngIf="resultadoArray.length == 3" class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
 
-                        Você acertou 3! Hoje é seu dia de sorte! 😆✨🎉🎊
+                        You got 3 right! Today is your lucky day! 😆✨🎉🎊
                         
                     </div>
 
                     <div  *ngIf="resultadoArray.length == 6" class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
 
-                        Você acertou todas! Parabéns 😆✨🎉🎊
+                        
+                        You got them all right! Congratulations 😆✨🎉🎊
                         
                     </div>
 
