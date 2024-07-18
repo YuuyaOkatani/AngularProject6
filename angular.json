@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MegaCena2": {
+    "AngularProject6V2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": { "base": "docs", "browser": "" },
+            "outputPath": { "base": "docs", "browser": "dist" },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,7 +39,12 @@
               "src/styles.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -69,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "MegaCena2:build:production"
+              "buildTarget": "AngularProject6V2:build:production"
             },
             "development": {
-              "buildTarget": "MegaCena2:build:development"
+              "buildTarget": "AngularProject6V2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "MegaCena2:build"
+            "buildTarget": "AngularProject6V2:build"
           }
         },
         "test": {
@@ -96,16 +101,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

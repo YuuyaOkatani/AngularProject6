@@ -3,98 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../megacena2/megacena2.component.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Document</title>
- 
 </head>
 <body>
-    <div class="component1">
-        <div class="component2">
-            <div style="display: inline-block;">
-
-           
-
-                
-
-                <div >
-                    <input class="input1" placeholder="Enter 6 numbers from 1 to 60. Ex: 59,11,5..." [(ngModel)]="valor2"  >
-                </div>
-                
-
-
-                
-                <div>
-                    <button type="button" id="button" class="btn btn-success" style="margin-top: 20px; margin-left: 150px;width: 100px; position: absolute;" (click)="sortear()">Draw!</button>
-                </div>
-
-                <div id="component3" [ngClass]="{'transition': togglar , 'transition2': !togglar}" >
-                    
-                    <div style="display: flex" >
-                        
-                        <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px; margin-left: 30px;">
-                            <p> Number drawn: {{valor}}</p>
-                        </div>
-                        <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert" style="margin: 20px; width: 200px;">
-                            <p> Number you entered:  {{array2}}</p>
-                        </div>
-                        <i class="bi bi-x-circle" (click)="fechar()" style="background-color: red; right: 0px; border-radius: 10px; position: absolute;  "  ></i>
-
-                    
-                    </div>
-                    <div *ngIf="array2.length  !== 6 && valor2.split(',').length < 6  " class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
-                        
-                        You haven't entered the required number of numbers yet!
-                      </div>
-
-                    <div *ngIf="array2.length  !== 6 && valor2.split(',').length > 6" class="alert alert-danger" role="alert" style="width: 320px; left: 90px; margin-top: 10px;">
-                        
-                         You put too many numbers!
-                      </div>
-
-                    <div *ngIf="resultadoArray.length !== 0 && array2.length == 6  " class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
-
-                        Numbers placed that you got right: {{resultadoArray}}
-              
-                        
-                    </div>
-                    <div *ngIf=" array2.length== 6 && resultadoArray.length == 0 " class="alert alert-danger" role="alert" style="width: 320px; left: 90px;">
-                        You didn't get any right. Try again 😢
-                    </div>
-
-                    <div  *ngIf="resultadoArray.length == 3" class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
-
-                        You got 3 right! Today is your lucky day! 😆✨🎉🎊
-                        
-                    </div>
-
-                    <div  *ngIf="resultadoArray.length == 6" class="alert alert-success" role="alert" style="width: 320px; left: 90px;">
-
-                        
-                        You got them all right! Congratulations 😆✨🎉🎊
-                        
-                    </div>
-
-
-                    
-
-           
-                    
-                    
-                </div>
-                
-
-                
-
-            </div>
-            
-
-
-        </div>
+    <div class="bg-secondary">
+        <div class="component2 text-center row ">
         
+            <input placeholder="Enter 6 numbers from 1 to 60. Ex: 59,11,5..." [(ngModel)]="valor2" class="mt-5">
+    
+    
+    
+    
+            <div>
+                <button type="button" id="button" class="btn btn-success btn-lg mb-5 mt-5" 
+                   
+                    (click)="sortear()">Draw!</button>
+            </div>
+    
+            
+    
+    
+    
+        </div>
+    
+        <div id="component3" [ngClass]="{'transition': togglar , 'transition2': !togglar}">
+    
+            <div style="display: flex">
+    
+                <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert"
+                    style="margin: 20px; width: 200px; margin-left: 30px;">
+                    <p> Number drawn: {{valor}}</p>
+                </div>
+                <div *ngIf="array2.length == 6 " class="alert alert-warning" role="alert"
+                    style="margin: 20px; width: 200px;">
+                    <p> Number you entered: {{array2}}</p>
+                </div>
+                <i class="bi bi-x-circle" (click)="fechar()"
+                    style="background-color: red; right: 0px; border-radius: 10px; position: absolute;  "></i>
+    
+    
+            </div>
+            <div *ngIf="array2.length  !== 6 && valor2.split(',').length < 6  " class="alert alert-danger" role="alert"
+                style="width: 320px; left: 90px; margin-top: 10px;">
+    
+                You haven't entered the required number of numbers yet!
+            </div>
+    
+            <div *ngIf="array2.length  !== 6 && valor2.split(',').length > 6" class="alert alert-danger" role="alert"
+                style="width: 320px; left: 90px; margin-top: 10px;">
+    
+                You put too many numbers!
+            </div>
+    
+            <div *ngIf="resultadoArray.length !== 0 && array2.length == 6  " class="alert alert-success" role="alert"
+                style="width: 320px; left: 90px;">
+    
+                Numbers placed that you got right: {{resultadoArray}}
+    
+    
+            </div>
+            <div *ngIf=" array2.length== 6 && resultadoArray.length == 0 " class="alert alert-danger" role="alert"
+                style="width: 320px; left: 90px;">
+                You didn't get any right. Try again 😢
+            </div>
+    
+            <div *ngIf="resultadoArray.length == 3" class="alert alert-success" role="alert"
+                style="width: 320px; left: 90px;">
+    
+                You got 3 right! Today is your lucky day! 😆✨🎉🎊
+    
+            </div>
+    
+            <div *ngIf="resultadoArray.length == 6" class="alert alert-success" role="alert"
+                style="width: 320px; left: 90px;">
+    
+    
+                You got them all right! Congratulations 😆✨🎉🎊
+    
+            </div>
+    
+    
+    
+    
+    
+    
+    
+        </div>
+    
     </div>
-    
-    
     
 </body>
 </html>

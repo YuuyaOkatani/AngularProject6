@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.component.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bg-secondary text-center">
+        <div class="component2 text-center row ">
+
+            <input placeholder="Enter 6 numbers from 1 to 60. Ex: 59,11,5..." [(ngModel)]="inputValue" class="mt-5"
+                [disabled]="result">
+
+
+
+
+            <div>
+                <button type="button" id="button" class="btn btn-success btn-lg mb-5 mt-5"
+                    (click)="draw()">Draw!</button>
+            </div>
+
+
+
+
+
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="component3 text-center p-5"
+                        [ngClass]="{'transition': togglar , 'transition2': !togglar}">
+
+                        <div>
+                            <i class="bi bi-x-circle button1" *ngIf="result" (click)="fechar()"></i>
+
+
+                        </div>
+                        <div class="row" *ngIf="result != true && result != ''">
+                            <div class="col-12">
+                                <div class="alert alert-danger" role="alert">
+                                    <p *ngIf="result == 'less'">You haven't entered the required number of numbers yet!</p>
+                                    <p *ngIf="result =='too many'">You put too many numbers!</p>
+                                    <p *ngIf="result =='invalid'">Invalid input</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="result == true">
+
+                            <div class="col">
+                                <div class="alert alert-warning" role="alert">
+                                    <p>Number drawn: {{valorCompare}}</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="alert alert-warning" role="alert">
+                                    <p>Number you entered: {{valorCompare2}}</p>
+                                </div>
+
+                            </div>
+                            <div class="col-12">
+                                <div class="alert alert-success" *ngIf="resultadoArray.length != 0" role="alert">
+                                    Numbers placed that you got right: {{resultadoArray}}
+                                </div>
+
+                                <div class="alert alert-success" *ngIf="resultadoArray.length > 2" role="alert">
+                                    <p *ngIf="resultadoArray.length == 3" >You got 3 right! Today is your lucky day! 😆✨🎉🎊</p>
+                                    <p  *ngIf="resultadoArray.length == 6">You got them all right! Congratulations 😆✨🎉🎊</p>
+                                </div>
+
+                                <div class="alert alert-warning" role="alert" *ngIf="resultadoArray.length == 0">
+                                    <p>You didn't get any right. Try again 😢</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
